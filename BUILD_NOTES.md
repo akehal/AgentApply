@@ -50,4 +50,6 @@ These were proposed by the AI assistant during implementation and kept after rev
    - browser checks of drag-and-drop, the file picker and the error messages;
    - **one** real analysis on PDF-extracted text: all five stages completed in 90 s, and all 17 evidence quotes verified against the extracted text.
 
+8. **Deployment.** Deployed to Vercel at https://agent-apply-three.vercel.app/. Live checks: the page loads, PDF/.docx extraction works, input validation and error responses work, the served JavaScript contains no key or API references, and the API key is configured server-side (an analysis stream started and was cancelled after 2 seconds).
+
 Every step ended with `npx tsc --noEmit`, `npm run lint` and `npm run build` passing. The production client bundle was checked for API key or Anthropic API references (none).

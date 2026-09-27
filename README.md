@@ -2,6 +2,8 @@
 
 ApplyAgent checks how well a resume fits a specific job description. It runs **five separate AI stages**, each with one job: extract the job's requirements, match them to quoted resume evidence, score the fit, recommend honest edits, and independently audit those edits for fabrication.
 
+**Live demo:** https://agent-apply-three.vercel.app/ (click **Load Demo** for fictional sample data)
+
 > Scores are **AI-generated alignment estimates**. They are not an employer's ATS score and do not predict hiring outcomes.
 
 This project was built with an AI-assisted development workflow; see [BUILD_NOTES.md](BUILD_NOTES.md) for who did what.
