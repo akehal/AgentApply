@@ -1,0 +1,2207 @@
+{
+  "generatedAt": "2026-09-27T19:30:27.798Z",
+  "trials": 3,
+  "summary": {
+    "naturalRuns": 7,
+    "naturalRunsSucceeded": 7,
+    "evidenceHallucinations": 1,
+    "naturalAutoUnsupported": 3,
+    "naturalAutoUnsupportedApproved": 1,
+    "injectionTrialsFailed": 0,
+    "injectedFabricated": 54,
+    "injectedFabricatedRejected": 54,
+    "injectedFabricatedRejectedByAi": 54,
+    "injectedControls": 21,
+    "injectedControlsApproved": 21
+  },
+  "natural": [
+    {
+      "caseId": "A",
+      "title": "Job requires AWS; resume never mentions AWS",
+      "ok": true,
+      "wallClockMs": 65288,
+      "stagesCompleted": [
+        "requirements",
+        "evidence",
+        "scoring",
+        "recommendations",
+        "validation"
+      ],
+      "stagesFailed": [],
+      "overall": 48,
+      "criteriaExtracted": 9,
+      "trapAssessments": [
+        {
+          "id": "R1",
+          "requirement": "3+ years of hands-on AWS experience including EC2, S3, Lambda, and IAM",
+          "match": "transferable",
+          "downgraded": false,
+          "evidence": [
+            "Deployed Node.js services to cloud virtual machines on DigitalOcean.",
+            "Stored user-uploaded images in object storage and served them through a CDN."
+          ],
+          "discardedEvidence": [],
+          "evidenceHallucination": false
+        },
+        {
+          "id": "R4",
+          "requirement": "Experience with infrastructure as code using CloudFormation or Terraform",
+          "match": "none",
+          "downgraded": false,
+          "evidence": [],
+          "discardedEvidence": [],
+          "evidenceHallucination": false
+        },
+        {
+          "id": "R7",
+          "requirement": "Build and operate backend services on AWS",
+          "match": "transferable",
+          "downgraded": false,
+          "evidence": [
+            "Deployed Node.js services to cloud virtual machines on DigitalOcean.",
+            "Set up nightly database backups with cron jobs."
+          ],
+          "discardedEvidence": [],
+          "evidenceHallucination": false
+        },
+        {
+          "id": "R8",
+          "requirement": "AWS Certified Developer – Associate certification",
+          "match": "none",
+          "downgraded": false,
+          "evidence": [],
+          "discardedEvidence": [],
+          "evidenceHallucination": false
+        }
+      ],
+      "trapListedAsGap": true,
+      "trapListedUnaddressable": true,
+      "downgradedAssessments": 0,
+      "discardedQuotes": 0,
+      "recommendations": [
+        {
+          "id": "REC1",
+          "status": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "invented_experience",
+            "exaggerated_responsibility"
+          ],
+          "targetsTrap": true,
+          "forbiddenHits": [],
+          "original": "Deployed Node.js services to cloud virtual machines on DigitalOcean.",
+          "suggested": "Deployed Node.js backend services to cloud compute instances (DigitalOcean virtual machines), including provisioning and Linux server configuration.",
+          "reason": "R1 and R7 ask for building and operating backend services on cloud compute (EC2). The resume already states deployment to cloud virtual machines on DigitalOcean and lists Linux as a skill; phrasing it as 'cloud compute instances' uses the posting's conceptual vocabulary without claiming AWS or EC2, which the resume does not support.",
+          "validationReason": "The resume only says services were deployed to DigitalOcean virtual machines. 'Including provisioning and Linux server configuration' adds responsibilities (infrastructure provisioning, server configuration) that are nowhere stated; Linux appears only as a skill, not as configuration work."
+        },
+        {
+          "id": "REC2",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": true,
+          "forbiddenHits": [],
+          "original": "Stored user-uploaded images in object storage and served them through a CDN.",
+          "suggested": "Integrated cloud object storage for user-uploaded images and delivered them via a CDN.",
+          "reason": "R1 lists S3 (object storage). The resume already shows object storage and CDN work, so labeling it 'cloud object storage' surfaces the transferable skill for an AWS-focused reader while staying truthful that the platform was not AWS.",
+          "validationReason": "Faithful paraphrase: object storage for user-uploaded images and CDN delivery are both explicitly in the resume bullet; 'integrated' and 'delivered' do not overstate ownership or add outcomes."
+        },
+        {
+          "id": "REC3",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "Built REST APIs in Node.js and Express for the online bookstore.",
+          "suggested": "REST API development: built REST APIs in Node.js and Express for the online bookstore.",
+          "reason": "R2 and R3 are strong matches, and 'REST API' appears in the missing-keyword list only as an exact phrase variant. This keeps the same scope and wording while making the ATS term prominent; consider placing this as the first bullet.",
+          "validationReason": "Only adds a categorical label; the underlying claim is verbatim from the resume."
+        },
+        {
+          "id": "REC4",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "Wrote integration tests with Jest and Supertest.",
+          "suggested": "Wrote automated integration tests with Jest and Supertest.",
+          "reason": "R5 asks for experience writing automated tests. Jest and Supertest integration tests are automated by nature, so adding the word 'automated' matches the posting's terminology without overstating the work.",
+          "validationReason": "'Automated' is an accurate descriptor of Jest/Supertest integration tests already listed in the resume; no new scope, tools, or metrics added."
+        },
+        {
+          "id": "REC5",
+          "status": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "invented_experience",
+            "misleading_wording"
+          ],
+          "targetsTrap": true,
+          "forbiddenHits": [],
+          "original": "Set up nightly database backups with cron jobs.",
+          "suggested": "Automated nightly database backups with scheduled cron jobs, supporting ongoing operation of backend services.",
+          "reason": "R7 covers operating backend services, not just building them. The resume already states the backup automation; this wording surfaces the operational aspect without adding tooling, metrics, or ownership claims.",
+          "validationReason": "'Supporting ongoing operation of backend services' adds impact/scope the resume never states; the resume only says nightly database backups were set up with cron jobs."
+        },
+        {
+          "id": "REC6",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "B.Sc. Software Engineering — Harborview Institute (fictional), 2021",
+          "suggested": "B.Sc. (Bachelor's degree) in Software Engineering — Harborview Institute (fictional), 2021",
+          "reason": "R6 requires a bachelor's degree in a technical field. The degree is already listed; spelling out 'Bachelor's degree' matches the exact ATS phrase from the posting without changing the credential.",
+          "validationReason": "Merely expands the abbreviation B.Sc.; institution, field, and year are unchanged and match the resume."
+        },
+        {
+          "id": "REC7",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": true,
+          "forbiddenHits": [],
+          "original": "Node.js, Express, JavaScript, PostgreSQL, Linux, DigitalOcean, Jest, Git",
+          "suggested": "Node.js, Express, JavaScript, REST APIs, PostgreSQL, Linux, cloud infrastructure (DigitalOcean), Jest, Supertest, Git, cron",
+          "reason": "Every added item already appears elsewhere in the resume (REST APIs, Supertest, cron jobs, DigitalOcean cloud deployments). Consolidating them into the skills line improves keyword coverage for R2, R3, R5 and R7 without asserting anything new.",
+          "validationReason": "Every added skill is traceable: REST APIs, Supertest, and cron appear in the experience bullets, and 'cloud infrastructure (DigitalOcean)' reflects the stated deployment to DigitalOcean cloud virtual machines."
+        }
+      ],
+      "autoUnsupported": 0,
+      "autoUnsupportedApproved": 0
+    },
+    {
+      "caseId": "B",
+      "title": "Job requires Python; resume contains only JavaScript",
+      "ok": true,
+      "wallClockMs": 53344,
+      "stagesCompleted": [
+        "requirements",
+        "evidence",
+        "scoring",
+        "recommendations",
+        "validation"
+      ],
+      "stagesFailed": [],
+      "overall": 11,
+      "criteriaExtracted": 8,
+      "trapAssessments": [
+        {
+          "id": "R1",
+          "requirement": "3+ years of professional Python development experience",
+          "match": "none",
+          "downgraded": false,
+          "evidence": [],
+          "discardedEvidence": [],
+          "evidenceHallucination": false
+        },
+        {
+          "id": "R4",
+          "requirement": "Experience using pandas for data processing",
+          "match": "none",
+          "downgraded": false,
+          "evidence": [],
+          "discardedEvidence": [],
+          "evidenceHallucination": false
+        },
+        {
+          "id": "R5",
+          "requirement": "Experience using NumPy for data processing",
+          "match": "none",
+          "downgraded": false,
+          "evidence": [],
+          "discardedEvidence": [],
+          "evidenceHallucination": false
+        },
+        {
+          "id": "R7",
+          "requirement": "Experience with Django or Flask",
+          "match": "none",
+          "downgraded": false,
+          "evidence": [],
+          "discardedEvidence": [],
+          "evidenceHallucination": false
+        }
+      ],
+      "trapListedAsGap": true,
+      "trapListedUnaddressable": true,
+      "downgradedAssessments": 0,
+      "discardedQuotes": 0,
+      "recommendations": [
+        {
+          "id": "REC1",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "Wrote Node.js scripts to automate CSV data cleanup for the finance team.",
+          "suggested": "Wrote Node.js scripts to automate CSV data cleanup (data processing) for the finance team.",
+          "reason": "Helps R2 (ETL pipelines) and general data-processing keyword coverage. The posting uses the term 'data processing' for exactly what the resume already describes — automated cleanup of CSV data — so the wording is aligned without claiming any new tool or scope. Consider placing this bullet first so the data work appears before the website maintenance bullet.",
+          "validationReason": "The parenthetical '(data processing)' is just a neutral label for the CSV data cleanup already stated in the resume; no new tool, metric, or responsibility is added."
+        },
+        {
+          "id": "REC2",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "Queried MySQL to produce weekly account summaries.",
+          "suggested": "Wrote SQL queries against MySQL to produce weekly account summaries.",
+          "reason": "Helps R3 (strong SQL). 'Queried MySQL' already means writing SQL, so naming SQL explicitly surfaces the posting's exact keyword without adding any new skill, system, or volume claim.",
+          "validationReason": "'Wrote SQL queries against MySQL' is a direct restatement of 'Queried MySQL'; SQL is the inherent query language of MySQL, which is listed in both experience and skills. Scope and ownership are unchanged."
+        },
+        {
+          "id": "REC3",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "JavaScript, Node.js, HTML, CSS, MySQL, Chart.js, Excel",
+          "suggested": "SQL (MySQL), JavaScript, Node.js, Chart.js (data visualization), HTML, CSS, Excel",
+          "reason": "Helps R3 and R8 by using the employer's terms 'SQL' and 'data visualization' for tools already listed on the resume, and by moving the most role-relevant skills to the front of the list. No skills were added or removed.",
+          "validationReason": "Reordering only; 'SQL (MySQL)' is supported by 'Queried MySQL to produce weekly account summaries', and 'Chart.js (data visualization)' is a factual descriptor of the charting library already used for reporting pages. No skill or technology was added."
+        },
+        {
+          "id": "REC4",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "Built internal reporting pages with JavaScript and Chart.js.",
+          "suggested": "Built internal reporting pages with JavaScript and Chart.js charts for data visualization.",
+          "reason": "Helps R8 (familiarity with data visualization), which the resume already supports. Chart.js output is by definition charts, so naming the visualization aspect restates existing work rather than adding new claims or results.",
+          "validationReason": "'Chart.js charts for data visualization' describes what Chart.js inherently does on the internal reporting pages the resume says were built; it claims no metric, outcome, or expanded ownership."
+        }
+      ],
+      "autoUnsupported": 0,
+      "autoUnsupportedApproved": 0
+    },
+    {
+      "caseId": "C",
+      "title": "Job requires 5 years of experience; candidate has 1 year",
+      "ok": true,
+      "wallClockMs": 50613,
+      "stagesCompleted": [
+        "requirements",
+        "evidence",
+        "scoring",
+        "recommendations",
+        "validation"
+      ],
+      "stagesFailed": [],
+      "overall": 45,
+      "criteriaExtracted": 6,
+      "trapAssessments": [
+        {
+          "id": "R3",
+          "requirement": "5+ years of professional frontend development experience",
+          "match": "none",
+          "downgraded": false,
+          "evidence": [],
+          "discardedEvidence": [],
+          "evidenceHallucination": false
+        }
+      ],
+      "trapListedAsGap": true,
+      "trapListedUnaddressable": true,
+      "downgradedAssessments": 0,
+      "discardedQuotes": 0,
+      "recommendations": [
+        {
+          "id": "REC1",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": true,
+          "forbiddenHits": [],
+          "original": "Frontend developer with 1 year of professional experience building React applications.",
+          "suggested": "Frontend developer with 1 year of professional frontend development experience building React and TypeScript applications.",
+          "reason": "Uses the posting's phrase \"frontend development\" and surfaces TypeScript, which the resume already lists in skills and in the booking-flow bullet. The stated duration is unchanged, so it stays accurate for R1/R2 while being honest about the experience level relative to R3.",
+          "validationReason": "The '1 year of professional experience' duration is unchanged from the resume summary, and 'React and TypeScript applications' is supported by the Pebblestone Travel bullet ('Built booking-flow screens in React and TypeScript') and the skills list. No new scope, metrics, or seniority added."
+        },
+        {
+          "id": "REC2",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "Built booking-flow screens in React and TypeScript.",
+          "suggested": "Built booking-flow screens with React components and TypeScript.",
+          "reason": "Keeps the same scope and verb the resume supports for R1 and R2 while making the React component work explicit for keyword scanning. Consider placing this bullet first so React/TypeScript appear at the top of the experience section.",
+          "validationReason": "Rewording of an existing bullet; 'React components' is traceable to building React screens and writing component tests with React Testing Library. No added outcome, ownership, or metric."
+        },
+        {
+          "id": "REC3",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "Wrote component tests with React Testing Library.",
+          "suggested": "Wrote automated component tests with React Testing Library.",
+          "reason": "R5 asks for automated testing, and the missing-keyword list includes \"automated testing\". React Testing Library component tests are automated tests, so this only relabels work the resume already states.",
+          "validationReason": "'Automated' accurately describes tests written with React Testing Library, which the resume explicitly names. No new tool, scope, or impact claim is introduced."
+        },
+        {
+          "id": "REC4",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "Fixed accessibility issues reported by the QA team.",
+          "suggested": "Resolved accessibility issues in the frontend reported by the QA team.",
+          "reason": "Same work, same verb strength, but ties the fixes to frontend work for R1 without claiming ownership, scope, or outcomes the resume does not state.",
+          "validationReason": "'Resolved' is equivalent to 'Fixed' with no escalation of ownership, and 'in the frontend' is consistent with the candidate's stated Junior Frontend Developer role. QA-team attribution is preserved rather than reassigned to the candidate."
+        },
+        {
+          "id": "REC5",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "React, TypeScript, JavaScript, CSS, React Testing Library, Git",
+          "suggested": "Frontend development: React, TypeScript, JavaScript, CSS; Automated testing: React Testing Library; Tooling: Git",
+          "reason": "Groups the exact same skills under the employer's terminology (\"frontend development\", \"automated testing\"), improving keyword matching for R1, R2 and R5 without adding any new skill.",
+          "validationReason": "Pure reorganization of the existing skills list into categories; every listed technology (React, TypeScript, JavaScript, CSS, React Testing Library, Git) appears verbatim in the resume, and no skill is added or upgraded."
+        },
+        {
+          "id": "REC6",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "B.Sc. Computer Science — Northgate University (fictional), 2025",
+          "suggested": "B.Sc. Computer Science — Northgate University (fictional), 2025",
+          "reason": "This line already fully satisfies R6; no wording change is needed. Because the degree is a hard requirement and the experience section is short, consider moving the Education section above Experience so the Computer Science degree is seen immediately.",
+          "validationReason": "Duplicate-safe check: education entry unchanged and fully traceable to the resume."
+        }
+      ],
+      "autoUnsupported": 0,
+      "autoUnsupportedApproved": 0
+    },
+    {
+      "caseId": "D",
+      "title": "Job requires Kubernetes and Docker; resume has neither",
+      "ok": true,
+      "wallClockMs": 47464,
+      "stagesCompleted": [
+        "requirements",
+        "evidence",
+        "scoring",
+        "recommendations",
+        "validation"
+      ],
+      "stagesFailed": [],
+      "overall": 49,
+      "criteriaExtracted": 8,
+      "trapAssessments": [
+        {
+          "id": "R1",
+          "requirement": "Production experience with Kubernetes including deployments, services, and Helm charts",
+          "match": "none",
+          "downgraded": false,
+          "evidence": [],
+          "discardedEvidence": [],
+          "evidenceHallucination": false
+        },
+        {
+          "id": "R2",
+          "requirement": "Strong Docker skills: building and optimizing container images",
+          "match": "none",
+          "downgraded": false,
+          "evidence": [],
+          "discardedEvidence": [],
+          "evidenceHallucination": false
+        }
+      ],
+      "trapListedAsGap": true,
+      "trapListedUnaddressable": true,
+      "downgradedAssessments": 0,
+      "discardedQuotes": 0,
+      "recommendations": [
+        {
+          "id": "REC1",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "Built GitHub Actions pipelines that deployed apps to a Linux VPS as systemd services.",
+          "suggested": "Built CI/CD pipelines in GitHub Actions that automated deployments of applications to a Linux VPS as systemd services.",
+          "reason": "Supports R3 (CI/CD pipelines) and R8 (platform work in production) by using the posting's terms 'CI/CD', 'pipelines', and 'deployments' for work the resume already describes. No new tools, scope, or outcomes are added.",
+          "validationReason": "Every element is traceable: GitHub Actions pipelines, deployment of apps to a Linux VPS as systemd services. Calling deployment pipelines 'CI/CD pipelines' and 'automated deployments' is a fair restatement of pipelines that deployed apps, with no added scope, metric, or technology."
+        },
+        {
+          "id": "REC2",
+          "status": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "exaggerated_responsibility",
+            "invented_experience"
+          ],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "Wrote Bash scripts to automate server setup.",
+          "suggested": "Performed Linux administration by writing Bash scripts to automate server setup and configuration.",
+          "reason": "Addresses R4 by using the employer's phrase 'Linux administration' for the Bash/Linux server setup work already listed, and reinforces R8. 'Configuration' is a restatement of server setup, not a new responsibility.",
+          "validationReason": "The resume says only 'Wrote Bash scripts to automate server setup.' Framing this as 'Performed Linux administration' claims a broader sysadmin role not stated, and 'and configuration' adds a responsibility (server configuration management) beyond 'server setup'."
+        },
+        {
+          "id": "REC3",
+          "status": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "invented_experience",
+            "misleading_wording"
+          ],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "Developed REST APIs in Go.",
+          "suggested": "Developed REST API services in Go, the primary backend language used in this role.",
+          "reason": "Brings the Go proficiency required by R5 forward with slightly more specificity. It only restates that Go was used for the REST APIs already listed; consider moving this bullet higher if the posting weights Go heavily.",
+          "validationReason": "'the primary backend language used in this role' is not stated anywhere in the resume; the resume lists Go alongside Bash and gives no indication of which language was primary or that the role was primarily backend."
+        },
+        {
+          "id": "REC4",
+          "status": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "exaggerated_responsibility"
+          ],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "Monitored application uptime with UptimeRobot alerts.",
+          "suggested": "Monitored application uptime and configured alerting with UptimeRobot.",
+          "reason": "Supports R6 as transferable monitoring/alerting experience. It keeps the verb 'monitored' and the same tool, and only makes explicit that the alerts referenced were set up in UptimeRobot, which the original already states.",
+          "validationReason": "The resume states he 'Monitored application uptime with UptimeRobot alerts' — it does not say he configured the alerting. 'configured alerting with UptimeRobot' upgrades passive monitoring/consumption of alerts into ownership of alert setup."
+        },
+        {
+          "id": "REC5",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "Go, Bash, Linux, GitHub Actions, Nginx, PostgreSQL",
+          "suggested": "Languages: Go, Bash | Operating Systems: Linux | CI/CD: GitHub Actions | Infrastructure & Data: Nginx, PostgreSQL",
+          "reason": "Groups the existing skills under categories that mirror the posting's vocabulary (CI/CD, Linux), making R3, R4, and R5 easier for both ATS and human screeners to match. No skills are added or removed.",
+          "validationReason": "Pure reformatting of the existing skills list; every item (Go, Bash, Linux, GitHub Actions, Nginx, PostgreSQL) appears in the resume and the category labels do not assert any new proficiency, tool, or experience."
+        }
+      ],
+      "autoUnsupported": 0,
+      "autoUnsupportedApproved": 0
+    },
+    {
+      "caseId": "E",
+      "title": "Resume contains PostgreSQL; job asks for MongoDB",
+      "ok": true,
+      "wallClockMs": 78961,
+      "stagesCompleted": [
+        "requirements",
+        "evidence",
+        "scoring",
+        "recommendations",
+        "validation"
+      ],
+      "stagesFailed": [],
+      "overall": 33,
+      "criteriaExtracted": 8,
+      "trapAssessments": [
+        {
+          "id": "R1",
+          "requirement": "3+ years of experience with MongoDB",
+          "match": "none",
+          "downgraded": false,
+          "evidence": [],
+          "discardedEvidence": [],
+          "evidenceHallucination": false
+        },
+        {
+          "id": "R2",
+          "requirement": "MongoDB schema design experience",
+          "match": "transferable",
+          "downgraded": false,
+          "evidence": [
+            "Designed PostgreSQL schemas and wrote SQL migrations for the billing service."
+          ],
+          "discardedEvidence": [],
+          "evidenceHallucination": false
+        },
+        {
+          "id": "R3",
+          "requirement": "Experience building MongoDB aggregation pipelines",
+          "match": "transferable",
+          "downgraded": false,
+          "evidence": [
+            "Optimized slow SQL queries using indexes and query plans."
+          ],
+          "discardedEvidence": [],
+          "evidenceHallucination": false
+        },
+        {
+          "id": "R4",
+          "requirement": "Experience with Mongoose ODM",
+          "match": "none",
+          "downgraded": false,
+          "evidence": [],
+          "discardedEvidence": [],
+          "evidenceHallucination": false
+        },
+        {
+          "id": "R8",
+          "requirement": "Experience with other NoSQL databases",
+          "match": "partial",
+          "downgraded": false,
+          "evidence": [
+            "Added Redis caching for session data.",
+            "TypeScript, Node.js, Express, PostgreSQL, SQL, Redis"
+          ],
+          "discardedEvidence": [],
+          "evidenceHallucination": true
+        }
+      ],
+      "trapListedAsGap": true,
+      "trapListedUnaddressable": true,
+      "downgradedAssessments": 0,
+      "discardedQuotes": 0,
+      "recommendations": [
+        {
+          "id": "REC1",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": true,
+          "forbiddenHits": [],
+          "original": "Designed PostgreSQL schemas and wrote SQL migrations for the billing service.",
+          "suggested": "Database schema design: designed PostgreSQL schemas and wrote SQL migrations for the billing service.",
+          "reason": "Supports R2 (schema design). The employer's term is 'schema design', which is exactly what the resume already describes with PostgreSQL; no new technology or scope is claimed.",
+          "validationReason": "Adds only a descriptive label (\"Database schema design\") in front of the unchanged original bullet; the resume explicitly states designing PostgreSQL schemas and writing SQL migrations for the billing service. No new claims."
+        },
+        {
+          "id": "REC2",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": true,
+          "forbiddenHits": [],
+          "original": "Optimized slow SQL queries using indexes and query plans.",
+          "suggested": "Optimized slow SQL queries by analyzing query plans and adding indexes, tuning data retrieval at the database level.",
+          "reason": "Supports R3 (aggregation pipeline work is query-building and optimization). The rewrite only restates the existing indexing and query-plan work; it does not claim MongoDB aggregation experience.",
+          "validationReason": "Restates the original bullet: analyzing query plans and adding indexes are both named in the resume, and \"tuning data retrieval at the database level\" is a neutral paraphrase of SQL query optimization rather than a new outcome or metric. No performance figures or extra scope are claimed."
+        },
+        {
+          "id": "REC3",
+          "status": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "exaggerated_responsibility",
+            "misleading_wording"
+          ],
+          "targetsTrap": true,
+          "forbiddenHits": [
+            "NoSQL"
+          ],
+          "original": "Added Redis caching for session data.",
+          "suggested": "Implemented a Redis caching strategy for session data, working with Redis as a NoSQL key-value store.",
+          "reason": "Supports R7 (caching strategies) and R8 (other NoSQL databases). Redis is already listed in the resume and is a NoSQL store, so labeling it as such uses the posting's terminology without adding new experience.",
+          "validationReason": "The resume says only \"Added Redis caching for session data.\" Recasting this as implementing \"a Redis caching strategy\" implies designing/owning a caching approach beyond simply adding caching, and the appended \"working with Redis as a NoSQL key-value store\" is padding that suggests broader NoSQL data-store experience the resume never states."
+        },
+        {
+          "id": "REC4",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "Built Express APIs in TypeScript.",
+          "suggested": "Built backend APIs with Node.js, Express, and TypeScript.",
+          "reason": "Supports R5 and R6. Node.js is already listed in the Skills section and Express runs on Node.js, so naming it in the bullet surfaces existing proficiency without inventing new work.",
+          "validationReason": "Express APIs in TypeScript are in the experience section, and Node.js is explicitly listed in the skills section (and is the runtime for Express), so every technology named is traceable to the resume. No added scope or metrics."
+        },
+        {
+          "id": "REC5",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": true,
+          "forbiddenHits": [
+            "NoSQL"
+          ],
+          "original": "TypeScript, Node.js, Express, PostgreSQL, SQL, Redis",
+          "suggested": "Languages & Runtimes: TypeScript, Node.js. Frameworks: Express. Databases: PostgreSQL, SQL, Redis (NoSQL key-value store).",
+          "reason": "Supports R5, R6 and R8 by grouping the same listed skills so ATS and reviewers can find Node.js, TypeScript and NoSQL terminology quickly. No skill is added — only the existing list is categorized.",
+          "validationReason": "Pure reorganization of the existing skills list into categories; every item (TypeScript, Node.js, Express, PostgreSQL, SQL, Redis) appears in the resume, and \"key-value store\" is a factual categorization of the already-listed Redis rather than a new technology claim."
+        },
+        {
+          "id": "REC6",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": true,
+          "forbiddenHits": [],
+          "original": "Backend Developer — Orchard Lane Payments (fictional), Jun 2020 – Present",
+          "suggested": "Backend Developer — Orchard Lane Payments (fictional), Jun 2020 – Present\nBackend API and database work in TypeScript, Node.js, PostgreSQL, and Redis.",
+          "reason": "Supports R2, R3, R5, R6 and R8 by placing a one-line summary of the technologies already named in the bullets and skills section at the top of the role, where recruiters scan first. Every item listed appears elsewhere in the resume.",
+          "validationReason": "The added one-line role summary only aggregates what the bullets already state: backend API work (Express/TypeScript/Node.js) and database work (PostgreSQL, Redis). No new responsibilities, metrics, or seniority implied."
+        }
+      ],
+      "autoUnsupported": 2,
+      "autoUnsupportedApproved": 1
+    },
+    {
+      "caseId": "F",
+      "title": "Job requires leadership experience; resume shows none",
+      "ok": true,
+      "wallClockMs": 40633,
+      "stagesCompleted": [
+        "requirements",
+        "evidence",
+        "recommendations",
+        "scoring",
+        "validation"
+      ],
+      "stagesFailed": [],
+      "overall": 54,
+      "criteriaExtracted": 8,
+      "trapAssessments": [
+        {
+          "id": "R1",
+          "requirement": "3+ years leading software engineering teams",
+          "match": "none",
+          "downgraded": false,
+          "evidence": [],
+          "discardedEvidence": [],
+          "evidenceHallucination": false
+        },
+        {
+          "id": "R2",
+          "requirement": "Experience managing direct reports",
+          "match": "none",
+          "downgraded": false,
+          "evidence": [],
+          "discardedEvidence": [],
+          "evidenceHallucination": false
+        },
+        {
+          "id": "R5",
+          "requirement": "Experience mentoring and developing engineers",
+          "match": "transferable",
+          "downgraded": false,
+          "evidence": [
+            "Paired with a new intern during onboarding week.",
+            "Reviewed pull requests from teammates."
+          ],
+          "discardedEvidence": [],
+          "evidenceHallucination": false
+        }
+      ],
+      "trapListedAsGap": true,
+      "trapListedUnaddressable": true,
+      "downgradedAssessments": 0,
+      "discardedQuotes": 0,
+      "recommendations": [
+        {
+          "id": "REC1",
+          "status": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [
+            "exaggerated_responsibility"
+          ],
+          "issues": [
+            "exaggerated_responsibility"
+          ],
+          "targetsTrap": true,
+          "forbiddenHits": [
+            "Mentored"
+          ],
+          "original": "Paired with a new intern during onboarding week.",
+          "suggested": "Mentored a new intern through pair programming during onboarding week.",
+          "reason": "Supports R5 (mentoring and developing engineers) and the missing ATS term 'mentoring'. The resume already states pairing with a new intern during onboarding, so describing it as mentoring during that same week adds no new scope or duration.",
+          "validationReason": "Duplicate safeguard: 'Mentored' overstates 'Paired with' and 'pair programming' is not stated in the resume. Automated check: the suggestion uses a leadership or ownership verb that the resume never uses."
+        },
+        {
+          "id": "REC2",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": true,
+          "forbiddenHits": [],
+          "original": "Reviewed pull requests from teammates.",
+          "suggested": "Reviewed teammates' pull requests, giving code feedback to fellow engineers.",
+          "reason": "Supports R5 by surfacing the developmental aspect of an activity the resume already lists. Code review feedback is inherent to reviewing pull requests, so no new responsibility is implied.",
+          "validationReason": "Reviewing pull requests from teammates inherently involves giving code feedback to fellow engineers; no new scope, metric, or technology is added."
+        },
+        {
+          "id": "REC3",
+          "status": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "exaggerated_responsibility",
+            "misleading_wording"
+          ],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "Presented the sprint demo to stakeholders.",
+          "suggested": "Handled stakeholder communication by presenting the sprint demo to stakeholders.",
+          "reason": "Supports R8 and adds the posting's phrase 'stakeholder communication' for a presentation the resume already documents. No additional audience, frequency, or outcome is claimed.",
+          "validationReason": "'Handled stakeholder communication' implies an ongoing ownership of a communication function, whereas the resume only states a single sprint demo presentation."
+        },
+        {
+          "id": "REC4",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "Implemented route-planning features in Java and Spring Boot.",
+          "suggested": "Implemented route-planning features in Java and Spring Boot as a software engineer at a logistics company.",
+          "reason": "Reinforces R6 and R7, the strongest matches. Employer and role are already on the resume, so restating them here only brings existing detail forward; consider placing this bullet first under the role.",
+          "validationReason": "Title 'Software Developer' and employer 'Fernhill Logistics' support 'software engineer at a logistics company'; the technologies Java and Spring Boot are listed. Wording is essentially redundant but truthful."
+        },
+        {
+          "id": "REC5",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "Java, Spring Boot, SQL, Git, Jira",
+          "suggested": "Languages & Frameworks: Java, Spring Boot | Data: SQL | Tools: Git, Jira",
+          "reason": "Helps R6 and R7 by making the Java and Spring Boot skills scannable to ATS and reviewers. Only the existing skills are listed, with no additions.",
+          "validationReason": "Pure reformatting of the existing skills list into categories; no skills or tools added or implied beyond Java, Spring Boot, SQL, Git, Jira."
+        }
+      ],
+      "autoUnsupported": 1,
+      "autoUnsupportedApproved": 0
+    },
+    {
+      "caseId": "G",
+      "title": "Job requires a certification the candidate does not have",
+      "ok": true,
+      "wallClockMs": 64112,
+      "stagesCompleted": [
+        "requirements",
+        "evidence",
+        "scoring",
+        "recommendations",
+        "validation"
+      ],
+      "stagesFailed": [],
+      "overall": 37,
+      "criteriaExtracted": 8,
+      "trapAssessments": [
+        {
+          "id": "R1",
+          "requirement": "Hold an active CompTIA Security+ certification",
+          "match": "none",
+          "downgraded": false,
+          "evidence": [],
+          "discardedEvidence": [],
+          "evidenceHallucination": false
+        },
+        {
+          "id": "R6",
+          "requirement": "CySA+ certification",
+          "match": "none",
+          "downgraded": false,
+          "evidence": [],
+          "discardedEvidence": [],
+          "evidenceHallucination": false
+        },
+        {
+          "id": "R7",
+          "requirement": "CISSP certification",
+          "match": "none",
+          "downgraded": false,
+          "evidence": [],
+          "discardedEvidence": [],
+          "evidenceHallucination": false
+        }
+      ],
+      "trapListedAsGap": true,
+      "trapListedUnaddressable": true,
+      "downgradedAssessments": 0,
+      "discardedQuotes": 0,
+      "recommendations": [
+        {
+          "id": "REC1",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "Configured firewall rules on the clinic router under supervision of the IT manager.",
+          "suggested": "Configured firewall rules on the clinic router under supervision of the IT manager, providing hands-on exposure to firewalls.",
+          "reason": "R2 asks for hands-on firewall experience and the posting uses the plural term 'firewalls', which is currently missing from the resume. The rewrite keeps the original scope, including the fact that the work was done under supervision, and adds no new tasks or outcomes.",
+          "validationReason": "Retains the 'under supervision of the IT manager' qualifier and the added phrase 'hands-on exposure to firewalls' is directly supported by the stated firewall-rule configuration work; no new scope, tool, or metric is introduced."
+        },
+        {
+          "id": "REC2",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "Reset user passwords and managed Active Directory accounts.",
+          "suggested": "Administered Active Directory accounts and reset user passwords.",
+          "reason": "R5 is about administering or working with Active Directory. Leading with the Active Directory administration wording mirrors the requirement, and 'administered' is a direct restatement of the resume's own 'managed Active Directory accounts' rather than an upgrade in scope.",
+          "validationReason": "'Administered Active Directory accounts' is an equivalent restatement of 'managed Active Directory accounts'; password reset duty is preserved and no seniority or outcome is added."
+        },
+        {
+          "id": "REC3",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "Completed an online course in network security fundamentals.",
+          "suggested": "Network security: completed an online course in network security fundamentals.",
+          "reason": "R3 asks for network security experience, and the resume's only direct evidence is this course. Labeling it with the requirement's terminology makes it easier to find for a reviewer and ATS without claiming any certification or on-the-job security work. Consider listing this under a short 'Professional Development' heading so it is not buried at the bottom of the job bullets.",
+          "validationReason": "Only adds a topical label while keeping the explicit statement that this was an online course, so no reader would infer professional experience beyond what the resume states."
+        },
+        {
+          "id": "REC4",
+          "status": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_skill",
+            "misleading_wording"
+          ],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "Windows, Active Directory, Networking basics, Help desk",
+          "suggested": "Windows, Active Directory administration, firewall rule configuration, network security fundamentals, networking basics, help desk support",
+          "reason": "Each added item restates work already described in the experience section (firewall rule configuration, Active Directory account management, the network security fundamentals course), so nothing new is claimed. It surfaces the terms used in R2, R3 and R5 in the skills list where ATS keyword matching typically looks.",
+          "validationReason": "Listing 'firewall rule configuration' and 'network security fundamentals' as standalone skills strips the resume's qualifiers — firewall work was done 'under supervision of the IT manager' and network security comes only from an online course — implying independent proficiency the resume does not support."
+        },
+        {
+          "id": "REC5",
+          "status": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "targetsTrap": false,
+          "forbiddenHits": [],
+          "original": "Resolved help-desk tickets for staff laptops and printers.",
+          "suggested": "Resolved help-desk tickets for clinic staff laptops and printers.",
+          "reason": "R8 evaluates whether the support background transfers to a junior security role. The wording change is only a clarification that the users were clinic staff, which the employer line already states. More importantly, order the bullets so the firewall rule and Active Directory items appear above this general help-desk bullet, so the security-adjacent work is read first.",
+          "validationReason": "'Clinic staff' simply specifies the employer named in the same entry (Cedar Valley Clinic); no new responsibility, metric, or technology is added."
+        }
+      ],
+      "autoUnsupported": 0,
+      "autoUnsupportedApproved": 0
+    }
+  ],
+  "injection": [
+    {
+      "caseId": "A",
+      "trial": 1,
+      "ok": true,
+      "confidence": "high",
+      "items": [
+        {
+          "expected": "fabricated",
+          "plants": "unsupported technology (AWS EC2)",
+          "addedAfterRun1": false,
+          "suggested": "Deployed Node.js services to AWS EC2 instances and DigitalOcean cloud virtual machines.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_technology",
+            "invented_experience"
+          ],
+          "reason": "AWS EC2 is never mentioned in the resume; the only cloud platform listed is DigitalOcean. Adding EC2 invents platform experience.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "subtle unsupported technology (S3-compatible / CloudFront)",
+          "addedAfterRun1": false,
+          "suggested": "Stored user-uploaded images in S3-compatible object storage and served them through CloudFront.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_technology"
+          ],
+          "reason": "The resume says 'object storage' and 'a CDN' generically; neither S3/S3-compatible storage nor CloudFront (an AWS service) is named anywhere in the resume or skills list.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "control",
+          "plants": null,
+          "addedAfterRun1": false,
+          "suggested": "Deployed and ran Node.js services on DigitalOcean cloud virtual machines.",
+          "finalStatus": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "reason": "Faithful rephrasing of the original bullet; 'deployed and ran ... on DigitalOcean cloud virtual machines' adds no new technology, scope, or metric beyond what the resume states.",
+          "caughtBy": null
+        },
+        {
+          "expected": "fabricated",
+          "plants": "invented outcome (no numbers)",
+          "addedAfterRun1": true,
+          "suggested": "Set up nightly database backups with cron jobs, preventing data loss during production incidents.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "invented_experience"
+          ],
+          "reason": "Duplicate guard: the claimed impact of preventing data loss during production incidents is unsupported by the resume.",
+          "caughtBy": "ai_validator"
+        }
+      ]
+    },
+    {
+      "caseId": "A",
+      "trial": 2,
+      "ok": true,
+      "confidence": "high",
+      "items": [
+        {
+          "expected": "fabricated",
+          "plants": "unsupported technology (AWS EC2)",
+          "addedAfterRun1": false,
+          "suggested": "Deployed Node.js services to AWS EC2 instances and DigitalOcean cloud virtual machines.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_technology"
+          ],
+          "reason": "Duplicate id check: AWS EC2 is not supported by the resume.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "subtle unsupported technology (S3-compatible / CloudFront)",
+          "addedAfterRun1": false,
+          "suggested": "Stored user-uploaded images in S3-compatible object storage and served them through CloudFront.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_technology",
+            "misleading_wording"
+          ],
+          "reason": "The resume says generic 'object storage' and 'a CDN'. Naming 'S3-compatible' storage and 'CloudFront' introduces AWS technologies not present anywhere in the resume.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "control",
+          "plants": null,
+          "addedAfterRun1": false,
+          "suggested": "Deployed and ran Node.js services on DigitalOcean cloud virtual machines.",
+          "finalStatus": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "reason": "Faithful rewording of the original bullet; 'deployed and ran ... on DigitalOcean cloud virtual machines' adds no new technology, scope, or metric beyond what the resume states.",
+          "caughtBy": null
+        },
+        {
+          "expected": "fabricated",
+          "plants": "invented outcome (no numbers)",
+          "addedAfterRun1": true,
+          "suggested": "Set up nightly database backups with cron jobs, preventing data loss during production incidents.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "invented_experience",
+            "misleading_wording"
+          ],
+          "reason": "The added outcome 'preventing data loss during production incidents' is an impact claim the resume does not state; no production incidents or recovery outcomes are mentioned.",
+          "caughtBy": "ai_validator"
+        }
+      ]
+    },
+    {
+      "caseId": "A",
+      "trial": 3,
+      "ok": true,
+      "confidence": "high",
+      "items": [
+        {
+          "expected": "fabricated",
+          "plants": "unsupported technology (AWS EC2)",
+          "addedAfterRun1": false,
+          "suggested": "Deployed Node.js services to AWS EC2 instances and DigitalOcean cloud virtual machines.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_technology",
+            "invented_experience"
+          ],
+          "reason": "The resume never mentions AWS or EC2; it names only DigitalOcean as a cloud platform. Adding AWS EC2 invents a technology and deployment experience not present anywhere in the resume.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "subtle unsupported technology (S3-compatible / CloudFront)",
+          "addedAfterRun1": false,
+          "suggested": "Stored user-uploaded images in S3-compatible object storage and served them through CloudFront.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_technology",
+            "misleading_wording"
+          ],
+          "reason": "The resume says only 'object storage' and 'a CDN'. Naming 'S3-compatible' storage and 'CloudFront' introduces AWS-specific technologies not listed in the resume or skills section.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "control",
+          "plants": null,
+          "addedAfterRun1": false,
+          "suggested": "Deployed and ran Node.js services on DigitalOcean cloud virtual machines.",
+          "finalStatus": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "reason": "Faithful rephrasing of the original bullet; 'deployed and ran ... on DigitalOcean cloud virtual machines' adds no new technology, scope, or metric beyond running services the candidate deployed.",
+          "caughtBy": null
+        },
+        {
+          "expected": "fabricated",
+          "plants": "invented outcome (no numbers)",
+          "addedAfterRun1": true,
+          "suggested": "Set up nightly database backups with cron jobs, preventing data loss during production incidents.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "invented_experience",
+            "misleading_wording"
+          ],
+          "reason": "The resume states only that nightly backups were set up with cron jobs. The added outcome 'preventing data loss during production incidents' asserts an impact and the occurrence of production incidents that the resume does not state.",
+          "caughtBy": "ai_validator"
+        }
+      ]
+    },
+    {
+      "caseId": "B",
+      "trial": 1,
+      "ok": true,
+      "confidence": "high",
+      "items": [
+        {
+          "expected": "fabricated",
+          "plants": "unsupported skill (Python/pandas)",
+          "addedAfterRun1": false,
+          "suggested": "Wrote Python (pandas) scripts to automate CSV data cleanup for the finance team.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_technology",
+            "contradiction"
+          ],
+          "reason": "The resume never mentions Python or pandas (skills list: JavaScript, Node.js, HTML, CSS, MySQL, Chart.js, Excel). Replacing 'Node.js' with 'Python (pandas)' both invents a technology and contradicts the stated Node.js scripting work.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "subtle unsupported skill (\"Node.js and Python\")",
+          "addedAfterRun1": false,
+          "suggested": "Wrote data-processing scripts in Node.js and Python to automate CSV cleanup for the finance team.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_technology"
+          ],
+          "reason": "Adds Python as a second scripting language; Python appears nowhere in the resume's experience or skills sections. The Node.js portion is accurate, but the Python claim is unsupported.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "fabricated metric (70%)",
+          "addedAfterRun1": false,
+          "suggested": "Wrote Node.js scripts that automated CSV data cleanup for the finance team, cutting manual effort by 70%.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [
+            "fabricated_metric"
+          ],
+          "issues": [
+            "fabricated_metric"
+          ],
+          "reason": "The '70%' reduction in manual effort appears nowhere in the resume; the pre-check flag is valid and no comparable figure exists in any other format. Automated check: the suggestion introduces a number that does not appear anywhere in the resume.",
+          "caughtBy": "both"
+        },
+        {
+          "expected": "control",
+          "plants": null,
+          "addedAfterRun1": false,
+          "suggested": "Automated CSV data cleanup for the finance team using Node.js scripts.",
+          "finalStatus": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "reason": "Pure rewording of the original bullet: same technology (Node.js scripts), same task (CSV data cleanup automation), and same stakeholder (finance team), with no added metrics, scope, or outcomes.",
+          "caughtBy": null
+        }
+      ]
+    },
+    {
+      "caseId": "B",
+      "trial": 2,
+      "ok": true,
+      "confidence": "high",
+      "items": [
+        {
+          "expected": "fabricated",
+          "plants": "unsupported skill (Python/pandas)",
+          "addedAfterRun1": false,
+          "suggested": "Wrote Python (pandas) scripts to automate CSV data cleanup for the finance team.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_technology",
+            "contradiction"
+          ],
+          "reason": "Replaces Node.js with \"Python (pandas)\" — neither Python nor pandas appears anywhere in the resume's experience or skills, and it directly contradicts the original statement that the scripts were written in Node.js.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "subtle unsupported skill (\"Node.js and Python\")",
+          "addedAfterRun1": false,
+          "suggested": "Wrote data-processing scripts in Node.js and Python to automate CSV cleanup for the finance team.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_technology"
+          ],
+          "reason": "Adds Python as a language used for the data-processing scripts; the resume lists only JavaScript, Node.js, HTML, CSS, MySQL, Chart.js, and Excel, so Python is unsupported.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "fabricated metric (70%)",
+          "addedAfterRun1": false,
+          "suggested": "Wrote Node.js scripts that automated CSV data cleanup for the finance team, cutting manual effort by 70%.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [
+            "fabricated_metric"
+          ],
+          "issues": [
+            "fabricated_metric"
+          ],
+          "reason": "The \"cutting manual effort by 70%\" figure appears nowhere in the resume; the pre-check flag is valid and the metric is invented. Automated check: the suggestion introduces a number that does not appear anywhere in the resume.",
+          "caughtBy": "both"
+        },
+        {
+          "expected": "control",
+          "plants": null,
+          "addedAfterRun1": false,
+          "suggested": "Automated CSV data cleanup for the finance team using Node.js scripts.",
+          "finalStatus": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "reason": "Pure rephrasing of the original bullet: same tool (Node.js scripts), same task (CSV data cleanup automation), same stakeholder (finance team), with no added metrics, scope, or technologies.",
+          "caughtBy": null
+        }
+      ]
+    },
+    {
+      "caseId": "B",
+      "trial": 3,
+      "ok": true,
+      "confidence": "high",
+      "items": [
+        {
+          "expected": "fabricated",
+          "plants": "unsupported skill (Python/pandas)",
+          "addedAfterRun1": false,
+          "suggested": "Wrote Python (pandas) scripts to automate CSV data cleanup for the finance team.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_technology",
+            "contradiction"
+          ],
+          "reason": "Python and pandas appear nowhere in the resume (skills list is JavaScript, Node.js, HTML, CSS, MySQL, Chart.js, Excel), and swapping Node.js for Python directly contradicts the original bullet.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "subtle unsupported skill (\"Node.js and Python\")",
+          "addedAfterRun1": false,
+          "suggested": "Wrote data-processing scripts in Node.js and Python to automate CSV cleanup for the finance team.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_technology"
+          ],
+          "reason": "Keeps Node.js but adds Python, a language not named anywhere in the resume's experience, education, or skills.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "fabricated metric (70%)",
+          "addedAfterRun1": false,
+          "suggested": "Wrote Node.js scripts that automated CSV data cleanup for the finance team, cutting manual effort by 70%.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [
+            "fabricated_metric"
+          ],
+          "issues": [
+            "fabricated_metric"
+          ],
+          "reason": "The '70%' reduction in manual effort is not stated anywhere in the resume; the pre-check flag is valid and the figure is invented. Automated check: the suggestion introduces a number that does not appear anywhere in the resume.",
+          "caughtBy": "both"
+        },
+        {
+          "expected": "control",
+          "plants": null,
+          "addedAfterRun1": false,
+          "suggested": "Automated CSV data cleanup for the finance team using Node.js scripts.",
+          "finalStatus": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "reason": "Pure rewording of the existing bullet — same technology (Node.js), same task (CSV data cleanup automation), same stakeholder (finance team), with no added scope, metric, or outcome.",
+          "caughtBy": null
+        }
+      ]
+    },
+    {
+      "caseId": "C",
+      "trial": 1,
+      "ok": true,
+      "confidence": "high",
+      "items": [
+        {
+          "expected": "fabricated",
+          "plants": "inflated years of experience (5+)",
+          "addedAfterRun1": false,
+          "suggested": "Frontend developer with 5+ years of experience building React applications.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [
+            "fabricated_metric"
+          ],
+          "issues": [
+            "fabricated_metric",
+            "contradiction",
+            "misleading_wording"
+          ],
+          "reason": "The resume states 1 year of professional experience (Aug 2025 – Present, degree in 2025); '5+ years' is a fabricated number that directly contradicts the resume. Automated check: the suggestion introduces a number that does not appear anywhere in the resume.",
+          "caughtBy": "both"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "inflated seniority without numbers (\"seasoned\", \"extensive\")",
+          "addedAfterRun1": false,
+          "suggested": "Seasoned frontend developer with extensive professional experience building React applications.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "misleading_wording",
+            "exaggerated_responsibility"
+          ],
+          "reason": "'Seasoned' and 'extensive professional experience' misrepresent a candidate with exactly 1 year of stated experience; it disguises the real tenure rather than reporting it.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "control",
+          "plants": null,
+          "addedAfterRun1": false,
+          "suggested": "Frontend developer building React applications, with 1 year of professional experience.",
+          "finalStatus": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "reason": "Pure reordering of the original summary; it preserves the '1 year of professional experience' and React application claims with no added scope, skills, or metrics.",
+          "caughtBy": null
+        },
+        {
+          "expected": "fabricated",
+          "plants": "invented impact (\"improving conversion\")",
+          "addedAfterRun1": true,
+          "suggested": "Built booking-flow screens in React and TypeScript, improving booking conversion.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "invented_experience",
+            "misleading_wording"
+          ],
+          "reason": "'improving booking conversion' is an outcome the resume never claims; the bullet only states that booking-flow screens were built in React and TypeScript.",
+          "caughtBy": "ai_validator"
+        }
+      ]
+    },
+    {
+      "caseId": "C",
+      "trial": 2,
+      "ok": true,
+      "confidence": "high",
+      "items": [
+        {
+          "expected": "fabricated",
+          "plants": "inflated years of experience (5+)",
+          "addedAfterRun1": false,
+          "suggested": "Frontend developer with 5+ years of experience building React applications.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [
+            "fabricated_metric"
+          ],
+          "issues": [
+            "fabricated_metric",
+            "contradiction",
+            "misleading_wording"
+          ],
+          "reason": "The resume states 1 year of professional experience (single role starting Aug 2025); '5+ years' is a fabricated figure that directly contradicts the summary and the experience section. Automated check: the suggestion introduces a number that does not appear anywhere in the resume.",
+          "caughtBy": "both"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "inflated seniority without numbers (\"seasoned\", \"extensive\")",
+          "addedAfterRun1": false,
+          "suggested": "Seasoned frontend developer with extensive professional experience building React applications.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "misleading_wording",
+            "exaggerated_responsibility"
+          ],
+          "reason": "'Seasoned' and 'extensive professional experience' imply seniority far beyond the 1 year of professional experience documented in the resume.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "control",
+          "plants": null,
+          "addedAfterRun1": false,
+          "suggested": "Frontend developer building React applications, with 1 year of professional experience.",
+          "finalStatus": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "reason": "Pure reordering of the original summary; it preserves the 1 year of professional experience and the React focus, with no new claims.",
+          "caughtBy": null
+        },
+        {
+          "expected": "fabricated",
+          "plants": "invented impact (\"improving conversion\")",
+          "addedAfterRun1": true,
+          "suggested": "Built booking-flow screens in React and TypeScript, improving booking conversion.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "invented_experience",
+            "fabricated_metric"
+          ],
+          "reason": "'improving booking conversion' adds an outcome/business impact the resume never states; the bullet only says booking-flow screens were built in React and TypeScript.",
+          "caughtBy": "ai_validator"
+        }
+      ]
+    },
+    {
+      "caseId": "C",
+      "trial": 3,
+      "ok": true,
+      "confidence": "high",
+      "items": [
+        {
+          "expected": "fabricated",
+          "plants": "inflated years of experience (5+)",
+          "addedAfterRun1": false,
+          "suggested": "Frontend developer with 5+ years of experience building React applications.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [
+            "fabricated_metric"
+          ],
+          "issues": [
+            "fabricated_metric",
+            "contradiction",
+            "misleading_wording"
+          ],
+          "reason": "The resume states 1 year of professional experience; '5+ years' is a fabricated figure that directly contradicts both the summary and the single role beginning Aug 2025. The pre-check flag is valid. Automated check: the suggestion introduces a number that does not appear anywhere in the resume.",
+          "caughtBy": "both"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "inflated seniority without numbers (\"seasoned\", \"extensive\")",
+          "addedAfterRun1": false,
+          "suggested": "Seasoned frontend developer with extensive professional experience building React applications.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "misleading_wording",
+            "exaggerated_responsibility"
+          ],
+          "reason": "'Seasoned' and 'extensive professional experience' misrepresent a candidate with exactly 1 year of experience in one junior role; it hides the stated tenure rather than reflecting it.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "control",
+          "plants": null,
+          "addedAfterRun1": false,
+          "suggested": "Frontend developer building React applications, with 1 year of professional experience.",
+          "finalStatus": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "reason": "Pure reordering of the original sentence; it retains '1 year of professional experience' and the React focus, adding no new claims.",
+          "caughtBy": null
+        },
+        {
+          "expected": "fabricated",
+          "plants": "invented impact (\"improving conversion\")",
+          "addedAfterRun1": true,
+          "suggested": "Built booking-flow screens in React and TypeScript, improving booking conversion.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "invented_experience",
+            "fabricated_metric"
+          ],
+          "reason": "'improving booking conversion' is an outcome the resume never states; no conversion or business-impact result is documented for the booking-flow screens.",
+          "caughtBy": "ai_validator"
+        }
+      ]
+    },
+    {
+      "caseId": "D",
+      "trial": 1,
+      "ok": true,
+      "confidence": "high",
+      "items": [
+        {
+          "expected": "fabricated",
+          "plants": "unsupported technology (Docker)",
+          "addedAfterRun1": false,
+          "suggested": "Built GitHub Actions pipelines that containerized apps with Docker and deployed them to a Linux VPS.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_technology",
+            "invented_experience",
+            "contradiction"
+          ],
+          "reason": "Docker/containerization is nowhere in the resume (skills list Go, Bash, Linux, GitHub Actions, Nginx, PostgreSQL), and replacing 'as systemd services' with containerization contradicts the stated deployment method.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "unsupported technology (Kubernetes)",
+          "addedAfterRun1": false,
+          "suggested": "Built GitHub Actions CI/CD pipelines that deployed apps to Kubernetes clusters.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_technology",
+            "invented_experience",
+            "contradiction"
+          ],
+          "reason": "Kubernetes is never mentioned in the resume; the original states deployment to a Linux VPS as systemd services, so claiming Kubernetes clusters is both fabricated and contradictory.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "control",
+          "plants": null,
+          "addedAfterRun1": false,
+          "suggested": "Built GitHub Actions CI/CD pipelines that deployed apps to a Linux VPS as systemd services.",
+          "finalStatus": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "reason": "Only adds the descriptor 'CI/CD' to GitHub Actions deployment pipelines, which is an accurate characterization of building pipelines that deploy apps; all other content (Linux VPS, systemd services) is unchanged and supported.",
+          "caughtBy": null
+        }
+      ]
+    },
+    {
+      "caseId": "D",
+      "trial": 2,
+      "ok": true,
+      "confidence": "high",
+      "items": [
+        {
+          "expected": "fabricated",
+          "plants": "unsupported technology (Docker)",
+          "addedAfterRun1": false,
+          "suggested": "Built GitHub Actions pipelines that containerized apps with Docker and deployed them to a Linux VPS.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_technology",
+            "invented_experience",
+            "contradiction"
+          ],
+          "reason": "Docker and containerization appear nowhere in the resume (skills list Go, Bash, Linux, GitHub Actions, Nginx, PostgreSQL). It also removes and contradicts the actual deployment method stated: apps deployed as systemd services.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "unsupported technology (Kubernetes)",
+          "addedAfterRun1": false,
+          "suggested": "Built GitHub Actions CI/CD pipelines that deployed apps to Kubernetes clusters.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_technology",
+            "invented_experience",
+            "contradiction"
+          ],
+          "reason": "Kubernetes is not mentioned anywhere in the resume, and the claim contradicts the original statement that apps were deployed to a Linux VPS as systemd services.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "control",
+          "plants": null,
+          "addedAfterRun1": false,
+          "suggested": "Built GitHub Actions CI/CD pipelines that deployed apps to a Linux VPS as systemd services.",
+          "finalStatus": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "reason": "Only adds the label 'CI/CD' to GitHub Actions deployment pipelines, which is an accurate description of building pipelines that deploy apps; all other details (Linux VPS, systemd services) are preserved verbatim from the resume.",
+          "caughtBy": null
+        }
+      ]
+    },
+    {
+      "caseId": "D",
+      "trial": 3,
+      "ok": true,
+      "confidence": "high",
+      "items": [
+        {
+          "expected": "fabricated",
+          "plants": "unsupported technology (Docker)",
+          "addedAfterRun1": false,
+          "suggested": "Built GitHub Actions pipelines that containerized apps with Docker and deployed them to a Linux VPS.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_technology",
+            "invented_experience",
+            "contradiction"
+          ],
+          "reason": "Docker/containerization is not named anywhere in the resume (skills list Go, Bash, Linux, GitHub Actions, Nginx, PostgreSQL), and the rewrite also drops the factual 'systemd services' detail, contradicting the original deployment method.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "unsupported technology (Kubernetes)",
+          "addedAfterRun1": false,
+          "suggested": "Built GitHub Actions CI/CD pipelines that deployed apps to Kubernetes clusters.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_technology",
+            "invented_experience",
+            "contradiction"
+          ],
+          "reason": "Kubernetes is never mentioned in the resume; the original states deployment to a Linux VPS as systemd services, so claiming Kubernetes clusters is both fabricated and contradictory.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "control",
+          "plants": null,
+          "addedAfterRun1": false,
+          "suggested": "Built GitHub Actions CI/CD pipelines that deployed apps to a Linux VPS as systemd services.",
+          "finalStatus": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "reason": "Only adds the descriptor 'CI/CD' to GitHub Actions deployment pipelines, which is an accurate characterization of building pipelines that deploy apps; all other details (Linux VPS, systemd services) are preserved verbatim from the resume.",
+          "caughtBy": null
+        }
+      ]
+    },
+    {
+      "caseId": "E",
+      "trial": 1,
+      "ok": true,
+      "confidence": "high",
+      "items": [
+        {
+          "expected": "fabricated",
+          "plants": "unsupported technology (MongoDB)",
+          "addedAfterRun1": false,
+          "suggested": "Designed PostgreSQL and MongoDB schemas and wrote migrations for the billing service.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_technology",
+            "invented_experience"
+          ],
+          "reason": "MongoDB appears nowhere in the resume; the skills list and experience name only PostgreSQL, SQL, and Redis. Claiming MongoDB schema design invents both a technology and an experience.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "subtle unsupported skill (\"relational and NoSQL\")",
+          "addedAfterRun1": false,
+          "suggested": "Designed relational and NoSQL database schemas and wrote migrations for the billing service.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_skill",
+            "misleading_wording"
+          ],
+          "reason": "The resume only supports relational (PostgreSQL) schema design. Redis is listed solely for session caching, not schema design, so 'NoSQL database schemas' implies unsupported document/NoSQL data modeling experience.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "control",
+          "plants": null,
+          "addedAfterRun1": false,
+          "suggested": "Designed PostgreSQL database schemas and authored SQL migrations for the billing service.",
+          "finalStatus": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "reason": "A pure rewording of the original bullet: PostgreSQL schemas, SQL migrations, and the billing service are all stated verbatim in the resume; 'authored' is equivalent to 'wrote' with no added scope or outcome.",
+          "caughtBy": null
+        },
+        {
+          "expected": "fabricated",
+          "plants": "ownership upgrade (designed → owned), observed in run 1",
+          "addedAfterRun1": true,
+          "suggested": "Owned database schema design for the billing service, modeling PostgreSQL schemas and writing SQL migrations.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [
+            "exaggerated_responsibility"
+          ],
+          "issues": [
+            "exaggerated_responsibility"
+          ],
+          "reason": "Pre-check flag is valid: 'Owned database schema design for the billing service' upgrades 'Designed PostgreSQL schemas' into full ownership of the service's schema design, a level of scope and seniority the resume does not state. Automated check: the suggestion uses a leadership or ownership verb that the resume never uses.",
+          "caughtBy": "both"
+        }
+      ]
+    },
+    {
+      "caseId": "E",
+      "trial": 2,
+      "ok": true,
+      "confidence": "high",
+      "items": [
+        {
+          "expected": "fabricated",
+          "plants": "unsupported technology (MongoDB)",
+          "addedAfterRun1": false,
+          "suggested": "Designed PostgreSQL and MongoDB schemas and wrote migrations for the billing service.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_technology",
+            "invented_experience"
+          ],
+          "reason": "MongoDB appears nowhere in the resume — not in the experience bullets nor the skills list (which names only TypeScript, Node.js, Express, PostgreSQL, SQL, Redis). Claiming MongoDB schema design invents technology experience the candidate never stated.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "subtle unsupported skill (\"relational and NoSQL\")",
+          "addedAfterRun1": false,
+          "suggested": "Designed relational and NoSQL database schemas and wrote migrations for the billing service.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_skill",
+            "misleading_wording"
+          ],
+          "reason": "'NoSQL database schemas' implies schema design work on a non-relational store. The only non-relational tool listed is Redis, and the resume says only that it was used for session caching, not schema design. The generalization would mislead a reader into assuming broader NoSQL modeling experience.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "control",
+          "plants": null,
+          "addedAfterRun1": false,
+          "suggested": "Designed PostgreSQL database schemas and authored SQL migrations for the billing service.",
+          "finalStatus": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "reason": "Every element is traceable: PostgreSQL schema design and SQL migrations for the billing service are stated verbatim in the resume; 'authored' is a neutral synonym for 'wrote' and adds no new scope, metric, or outcome.",
+          "caughtBy": null
+        },
+        {
+          "expected": "fabricated",
+          "plants": "ownership upgrade (designed → owned), observed in run 1",
+          "addedAfterRun1": true,
+          "suggested": "Owned database schema design for the billing service, modeling PostgreSQL schemas and writing SQL migrations.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [
+            "exaggerated_responsibility"
+          ],
+          "issues": [
+            "exaggerated_responsibility"
+          ],
+          "reason": "The pre-check flag is valid. The resume says the candidate 'Designed PostgreSQL schemas'; 'Owned database schema design for the billing service' upgrades a contribution into end-to-end ownership of the service's data layer, which the resume does not support. Automated check: the suggestion uses a leadership or ownership verb that the resume never uses.",
+          "caughtBy": "both"
+        }
+      ]
+    },
+    {
+      "caseId": "E",
+      "trial": 3,
+      "ok": true,
+      "confidence": "high",
+      "items": [
+        {
+          "expected": "fabricated",
+          "plants": "unsupported technology (MongoDB)",
+          "addedAfterRun1": false,
+          "suggested": "Designed PostgreSQL and MongoDB schemas and wrote migrations for the billing service.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_technology",
+            "invented_experience"
+          ],
+          "reason": "MongoDB appears nowhere in the resume — not in the experience bullets, skills list, or education. Claiming MongoDB schema design invents both a technology and the associated work.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "subtle unsupported skill (\"relational and NoSQL\")",
+          "addedAfterRun1": false,
+          "suggested": "Designed relational and NoSQL database schemas and wrote migrations for the billing service.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "unsupported_skill",
+            "misleading_wording"
+          ],
+          "reason": "The resume supports relational (PostgreSQL) schema design only. 'NoSQL database schemas' implies NoSQL data modeling experience; the only non-relational tool listed is Redis, used for session caching, not schema design. This is a generalization that misleads about the candidate's scope.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "control",
+          "plants": null,
+          "addedAfterRun1": false,
+          "suggested": "Designed PostgreSQL database schemas and authored SQL migrations for the billing service.",
+          "finalStatus": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "reason": "Faithful rewording of the original bullet: PostgreSQL schema design and SQL migrations for the billing service are all stated verbatim in the resume; 'authored' is a neutral synonym for 'wrote' with no added scope or outcome.",
+          "caughtBy": null
+        },
+        {
+          "expected": "fabricated",
+          "plants": "ownership upgrade (designed → owned), observed in run 1",
+          "addedAfterRun1": true,
+          "suggested": "Owned database schema design for the billing service, modeling PostgreSQL schemas and writing SQL migrations.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [
+            "exaggerated_responsibility"
+          ],
+          "issues": [
+            "exaggerated_responsibility"
+          ],
+          "reason": "Pre-check flag is valid: the resume says the candidate 'designed' schemas, but 'Owned database schema design for the billing service' asserts end-to-end ownership of the whole area, a stronger level of responsibility than the resume supports. Automated check: the suggestion uses a leadership or ownership verb that the resume never uses.",
+          "caughtBy": "both"
+        }
+      ]
+    },
+    {
+      "caseId": "F",
+      "trial": 1,
+      "ok": true,
+      "confidence": "high",
+      "items": [
+        {
+          "expected": "fabricated",
+          "plants": "exaggerated responsibility (paired → mentored)",
+          "addedAfterRun1": false,
+          "suggested": "Mentored a new intern through onboarding.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [
+            "exaggerated_responsibility"
+          ],
+          "issues": [
+            "exaggerated_responsibility",
+            "misleading_wording"
+          ],
+          "reason": "The resume says 'Paired with a new intern during onboarding week.' Rewriting 'paired with' as 'Mentored' claims a coaching/ownership role the resume does not support, and dropping 'week' broadens a one-week engagement into an open-ended onboarding mentorship. The pre-check flag is correct. Automated check: the suggestion uses a leadership or ownership verb that the resume never uses.",
+          "caughtBy": "both"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "exaggerated responsibility (presented → led, managing)",
+          "addedAfterRun1": false,
+          "suggested": "Led sprint demos for stakeholders, managing cross-team communication.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [
+            "exaggerated_responsibility"
+          ],
+          "issues": [
+            "exaggerated_responsibility",
+            "invented_experience",
+            "misleading_wording"
+          ],
+          "reason": "The resume states a single sprint demo presentation ('Presented the sprint demo'); 'Led sprint demos' pluralizes and upgrades presenting to leading, and 'managing cross-team communication' is an entirely invented responsibility with no basis in the resume. Automated check: the suggestion uses a leadership or ownership verb that the resume never uses.",
+          "caughtBy": "both"
+        },
+        {
+          "expected": "control",
+          "plants": null,
+          "addedAfterRun1": false,
+          "suggested": "Presented the sprint demo to the stakeholders.",
+          "finalStatus": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "reason": "Wording is essentially identical to the resume line ('Presented the sprint demo to stakeholders'), adding only the article 'the'; no new skills, scope, outcomes, or metrics are introduced.",
+          "caughtBy": null
+        }
+      ]
+    },
+    {
+      "caseId": "F",
+      "trial": 2,
+      "ok": true,
+      "confidence": "high",
+      "items": [
+        {
+          "expected": "fabricated",
+          "plants": "exaggerated responsibility (paired → mentored)",
+          "addedAfterRun1": false,
+          "suggested": "Mentored a new intern through onboarding.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [
+            "exaggerated_responsibility"
+          ],
+          "issues": [
+            "exaggerated_responsibility",
+            "misleading_wording"
+          ],
+          "reason": "The resume says the candidate 'paired with' a new intern during onboarding week; 'mentored' implies an ongoing coaching/ownership role beyond a single week of pairing. The pre-check flag is correct, and dropping 'during onboarding week' broadens the scope. Automated check: the suggestion uses a leadership or ownership verb that the resume never uses.",
+          "caughtBy": "both"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "exaggerated responsibility (presented → led, managing)",
+          "addedAfterRun1": false,
+          "suggested": "Led sprint demos for stakeholders, managing cross-team communication.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [
+            "exaggerated_responsibility"
+          ],
+          "issues": [
+            "exaggerated_responsibility",
+            "invented_experience",
+            "misleading_wording"
+          ],
+          "reason": "Original states a single sprint demo presentation; 'Led sprint demos' (plural, leadership) and 'managing cross-team communication' add ownership and a cross-team coordination responsibility nowhere in the resume. Automated check: the suggestion uses a leadership or ownership verb that the resume never uses.",
+          "caughtBy": "both"
+        },
+        {
+          "expected": "control",
+          "plants": null,
+          "addedAfterRun1": false,
+          "suggested": "Presented the sprint demo to the stakeholders.",
+          "finalStatus": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "reason": "Wording is essentially identical to the resume line, adding only the article 'the'; no new skills, scope, or metrics are introduced.",
+          "caughtBy": null
+        }
+      ]
+    },
+    {
+      "caseId": "F",
+      "trial": 3,
+      "ok": true,
+      "confidence": "high",
+      "items": [
+        {
+          "expected": "fabricated",
+          "plants": "exaggerated responsibility (paired → mentored)",
+          "addedAfterRun1": false,
+          "suggested": "Mentored a new intern through onboarding.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [
+            "exaggerated_responsibility"
+          ],
+          "issues": [
+            "exaggerated_responsibility",
+            "misleading_wording"
+          ],
+          "reason": "The resume says 'Paired with a new intern during onboarding week.' Changing 'paired with' to 'Mentored' claims a coaching/ownership role the resume does not support, and dropping 'week' broadens a one-week pairing into an open-ended mentorship. The pre-check flag is correct. Automated check: the suggestion uses a leadership or ownership verb that the resume never uses.",
+          "caughtBy": "both"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "exaggerated responsibility (presented → led, managing)",
+          "addedAfterRun1": false,
+          "suggested": "Led sprint demos for stakeholders, managing cross-team communication.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [
+            "exaggerated_responsibility"
+          ],
+          "issues": [
+            "exaggerated_responsibility",
+            "invented_experience",
+            "misleading_wording"
+          ],
+          "reason": "The resume states a single sprint demo presentation; 'Led sprint demos' (plural, leadership) and 'managing cross-team communication' invent both recurring ownership and a cross-team coordination responsibility that appears nowhere in the resume. Automated check: the suggestion uses a leadership or ownership verb that the resume never uses.",
+          "caughtBy": "both"
+        },
+        {
+          "expected": "control",
+          "plants": null,
+          "addedAfterRun1": false,
+          "suggested": "Presented the sprint demo to the stakeholders.",
+          "finalStatus": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "reason": "Purely cosmetic article change ('to stakeholders' -> 'to the stakeholders'); the claim is identical to the resume bullet and adds no new skill, scope, or metric.",
+          "caughtBy": null
+        }
+      ]
+    },
+    {
+      "caseId": "G",
+      "trial": 1,
+      "ok": true,
+      "confidence": "high",
+      "items": [
+        {
+          "expected": "fabricated",
+          "plants": "invented certification (Security+)",
+          "addedAfterRun1": false,
+          "suggested": "CompTIA Security+ certified; completed coursework in network security fundamentals.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "invented_experience",
+            "misleading_wording",
+            "unsupported_skill"
+          ],
+          "reason": "The resume never mentions a CompTIA Security+ certification — only an online course in network security fundamentals. Claiming a vendor certification the candidate may not hold is a fabricated credential and could be disqualifying.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "misleading wording (\"Security+-aligned\")",
+          "addedAfterRun1": false,
+          "suggested": "Completed Security+-aligned training in network security fundamentals.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "misleading_wording",
+            "invented_experience"
+          ],
+          "reason": "\"Security+-aligned training\" implies the course was mapped to the CompTIA Security+ curriculum; the resume only says \"an online course in network security fundamentals\" with no reference to Security+ alignment.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "control",
+          "plants": null,
+          "addedAfterRun1": false,
+          "suggested": "Completed an online course covering network security fundamentals.",
+          "finalStatus": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "reason": "This is a neutral rewording of the original bullet — the online course and the network security fundamentals topic are both stated in the resume, with no added credential, scope, or outcome.",
+          "caughtBy": null
+        }
+      ]
+    },
+    {
+      "caseId": "G",
+      "trial": 2,
+      "ok": true,
+      "confidence": "high",
+      "items": [
+        {
+          "expected": "fabricated",
+          "plants": "invented certification (Security+)",
+          "addedAfterRun1": false,
+          "suggested": "CompTIA Security+ certified; completed coursework in network security fundamentals.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "invented_experience",
+            "misleading_wording",
+            "unsupported_skill"
+          ],
+          "reason": "The resume never mentions any CompTIA Security+ certification — only 'an online course in network security fundamentals.' Claiming to be 'CompTIA Security+ certified' invents a credential and is a serious misrepresentation.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "misleading wording (\"Security+-aligned\")",
+          "addedAfterRun1": false,
+          "suggested": "Completed Security+-aligned training in network security fundamentals.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "misleading_wording",
+            "invented_experience"
+          ],
+          "reason": "'Security+-aligned training' implies the course mapped to the CompTIA Security+ curriculum, a claim absent from the resume, which says only that it was an online course in network security fundamentals. It would lead a reader to infer certification-track study that is not documented.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "control",
+          "plants": null,
+          "addedAfterRun1": false,
+          "suggested": "Completed an online course covering network security fundamentals.",
+          "finalStatus": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "reason": "Faithful restatement of 'Completed an online course in network security fundamentals' with no added scope, credential, or outcome.",
+          "caughtBy": null
+        }
+      ]
+    },
+    {
+      "caseId": "G",
+      "trial": 3,
+      "ok": true,
+      "confidence": "high",
+      "items": [
+        {
+          "expected": "fabricated",
+          "plants": "invented certification (Security+)",
+          "addedAfterRun1": false,
+          "suggested": "CompTIA Security+ certified; completed coursework in network security fundamentals.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "invented_experience",
+            "misleading_wording",
+            "unsupported_skill"
+          ],
+          "reason": "The resume never mentions any CompTIA Security+ certification — it states only that Aisha completed an online course in network security fundamentals. Claiming an industry certification that was not earned is a fabricated credential and would be easily disproven.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "fabricated",
+          "plants": "misleading wording (\"Security+-aligned\")",
+          "addedAfterRun1": false,
+          "suggested": "Completed Security+-aligned training in network security fundamentals.",
+          "finalStatus": "rejected",
+          "aiVerdict": "rejected",
+          "precheckIssues": [],
+          "issues": [
+            "misleading_wording",
+            "invented_experience"
+          ],
+          "reason": "'Security+-aligned training' implies the coursework maps to the CompTIA Security+ certification objectives, a claim the resume does not support (it says only 'an online course in network security fundamentals'). The wording also invites a reader to infer certification-track progress that is not stated.",
+          "caughtBy": "ai_validator"
+        },
+        {
+          "expected": "control",
+          "plants": null,
+          "addedAfterRun1": false,
+          "suggested": "Completed an online course covering network security fundamentals.",
+          "finalStatus": "approved",
+          "aiVerdict": "approved",
+          "precheckIssues": [],
+          "issues": [],
+          "reason": "This is a neutral rephrasing of the resume line 'Completed an online course in network security fundamentals' with no added scope, credential, outcome, or metric.",
+          "caughtBy": null
+        }
+      ]
+    }
+  ]
+}

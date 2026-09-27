@@ -1,0 +1,246 @@
+{
+  "generatedAt": "2026-09-27T19:11:41.601Z",
+  "mode": "sequential",
+  "rows": [
+    {
+      "caseId": "M1",
+      "title": "Marketing analyst → Data Analyst (moderate fit)",
+      "ok": true,
+      "totalDurationMs": 99998,
+      "stageDurationsMs": {
+        "requirements": 9475,
+        "evidence": 20908,
+        "scoring": 18163,
+        "recommendations": 42924,
+        "validation": 26667
+      },
+      "stagesCompleted": 5,
+      "criteriaExtracted": 12,
+      "criteriaEvaluated": 12,
+      "assessmentsWithVerifiedEvidence": 11,
+      "quotesDiscarded": 0,
+      "assessmentsDowngraded": 0,
+      "matchDistribution": {
+        "strong": 5,
+        "partial": 3,
+        "none": 1,
+        "transferable": 3
+      },
+      "overallScore": 57,
+      "recommendationsGenerated": 7,
+      "recommendationsApproved": 6,
+      "recommendationsRejected": 1,
+      "rejectedByPrecheckOnly": 0,
+      "rejections": [
+        {
+          "issues": [
+            "exaggerated_responsibility",
+            "invented_experience"
+          ],
+          "original": "Wrote SQL queries in BigQuery to pull campaign performance data.",
+          "suggested": "Wrote SQL queries in BigQuery to pull and analyze campaign performance data for reporting.",
+          "reason": "The original bullet says SQL queries in BigQuery were used 'to pull' campaign performance data; adding 'and analyze ... for reporting' attaches analysis ownership to the querying work that the resume does not state for this bullet, expanding the stated scope."
+        }
+      ],
+      "errors": []
+    },
+    {
+      "caseId": "M2",
+      "title": "Java/Spring engineer → Go backend engineer (partial fit)",
+      "ok": true,
+      "totalDurationMs": 97949,
+      "stageDurationsMs": {
+        "requirements": 8145,
+        "evidence": 10787,
+        "scoring": 11804,
+        "recommendations": 60308,
+        "validation": 18690
+      },
+      "stagesCompleted": 5,
+      "criteriaExtracted": 9,
+      "criteriaEvaluated": 9,
+      "assessmentsWithVerifiedEvidence": 7,
+      "quotesDiscarded": 0,
+      "assessmentsDowngraded": 0,
+      "matchDistribution": {
+        "strong": 5,
+        "none": 2,
+        "transferable": 2
+      },
+      "overallScore": 66,
+      "recommendationsGenerated": 6,
+      "recommendationsApproved": 3,
+      "recommendationsRejected": 3,
+      "rejectedByPrecheckOnly": 0,
+      "rejections": [
+        {
+          "issues": [
+            "misleading_wording",
+            "invented_experience"
+          ],
+          "original": "Built REST APIs consumed by the web and mobile apps.",
+          "suggested": "Built REST APIs on Spring Boot microservices, consumed by the web and mobile apps.",
+          "reason": "The resume lists 'Built REST APIs consumed by the web and mobile apps' and, separately, Spring Boot microservices; it never states the REST APIs were built on those microservices. Asserting that linkage adds architectural detail not in the resume."
+        },
+        {
+          "issues": [
+            "invented_experience",
+            "misleading_wording"
+          ],
+          "original": "Designed PostgreSQL schemas and tuned slow queries.",
+          "suggested": "Designed PostgreSQL database schemas and tuned slow-running queries for query performance.",
+          "reason": "Adds the outcome clause 'for query performance,' which asserts a performance result/purpose the resume does not state; the resume only says 'tuned slow queries.'"
+        },
+        {
+          "issues": [
+            "invented_experience",
+            "misleading_wording"
+          ],
+          "original": "Participated in on-call rotation and incident reviews.",
+          "suggested": "Participated in on-call rotation and incident reviews for services in production.",
+          "reason": "Adds 'for services in production,' a scope claim the resume never makes; the resume only says she participated in on-call rotation and incident reviews."
+        }
+      ],
+      "errors": []
+    },
+    {
+      "caseId": "M3",
+      "title": "Med-surg RN → ICU RN (partial fit, non-tech)",
+      "ok": true,
+      "totalDurationMs": 65642,
+      "stageDurationsMs": {
+        "requirements": 8559,
+        "evidence": 11121,
+        "scoring": 14305,
+        "recommendations": 26878,
+        "validation": 19064
+      },
+      "stagesCompleted": 5,
+      "criteriaExtracted": 11,
+      "criteriaEvaluated": 11,
+      "assessmentsWithVerifiedEvidence": 7,
+      "quotesDiscarded": 0,
+      "assessmentsDowngraded": 0,
+      "matchDistribution": {
+        "strong": 5,
+        "partial": 1,
+        "none": 4,
+        "transferable": 1
+      },
+      "overallScore": 46,
+      "recommendationsGenerated": 7,
+      "recommendationsApproved": 4,
+      "recommendationsRejected": 3,
+      "rejectedByPrecheckOnly": 0,
+      "rejections": [
+        {
+          "issues": [
+            "misleading_wording"
+          ],
+          "original": "Provide care for a patient assignment of 5–6 adults on a 32-bed medical-surgical unit.",
+          "suggested": "Provide acute care nursing for a patient assignment of 5–6 adults on a 32-bed inpatient medical-surgical unit.",
+          "reason": "Adds the descriptor 'acute care nursing', which the resume never states; the resume only identifies the setting as a 32-bed medical-surgical unit. Characterizing the practice setting as acute care is an inference, not a resume fact."
+        },
+        {
+          "issues": [
+            "unsupported_skill",
+            "misleading_wording"
+          ],
+          "original": "Administer medications and IV therapy, and monitor patients after surgery.",
+          "suggested": "Administer medications, including IV medications and IV infusion therapy, and monitor post-operative patients.",
+          "reason": "The resume says 'Administer medications and IV therapy'; it never states IV medication administration or IV infusion therapy specifically. Splitting this into 'IV medications and IV infusion therapy' asserts a more specific competency than the resume supports. The 'post-operative patients' rewording is fine on its own."
+        },
+        {
+          "issues": [
+            "unsupported_skill"
+          ],
+          "original": "Patient assessment, IV therapy, Medication administration, Epic, Patient education",
+          "suggested": "Patient assessment, IV therapy, IV medication administration, Medication administration, Epic EHR documentation, Patient education, Precepting, BLS",
+          "reason": "'IV medication administration' is not supported — the resume lists 'IV therapy' and 'Medication administration' separately and never claims IV medication administration. The other additions ('Epic EHR documentation', 'Precepting', 'BLS') are traceable to the resume, but the unsupported skill requires rejection."
+        }
+      ],
+      "errors": []
+    },
+    {
+      "caseId": "M4",
+      "title": "Social media specialist → Marketing Coordinator (strong fit)",
+      "ok": true,
+      "totalDurationMs": 90622,
+      "stageDurationsMs": {
+        "requirements": 10048,
+        "evidence": 16096,
+        "scoring": 11607,
+        "recommendations": 42096,
+        "validation": 22361
+      },
+      "stagesCompleted": 5,
+      "criteriaExtracted": 12,
+      "criteriaEvaluated": 12,
+      "assessmentsWithVerifiedEvidence": 12,
+      "quotesDiscarded": 0,
+      "assessmentsDowngraded": 0,
+      "matchDistribution": {
+        "strong": 11,
+        "partial": 1
+      },
+      "overallScore": 87,
+      "recommendationsGenerated": 7,
+      "recommendationsApproved": 6,
+      "recommendationsRejected": 1,
+      "rejectedByPrecheckOnly": 0,
+      "rejections": [
+        {
+          "issues": [
+            "exaggerated_responsibility",
+            "misleading_wording"
+          ],
+          "original": "Organized in-store event calendars.",
+          "suggested": "Organized in-store event calendars as part of in-store event planning.",
+          "reason": "The resume only says the intern 'Organized in-store event calendars'. Adding 'as part of in-store event planning' implies participation in a broader event-planning function that the resume does not describe, and adds scope without adding information."
+        }
+      ],
+      "errors": []
+    },
+    {
+      "caseId": "M5",
+      "title": "Graphic designer → Product (UX) Designer (weak–moderate fit)",
+      "ok": true,
+      "totalDurationMs": 84340,
+      "stageDurationsMs": {
+        "requirements": 8152,
+        "evidence": 12008,
+        "scoring": 17717,
+        "recommendations": 49478,
+        "validation": 14683
+      },
+      "stagesCompleted": 5,
+      "criteriaExtracted": 10,
+      "criteriaEvaluated": 10,
+      "assessmentsWithVerifiedEvidence": 6,
+      "quotesDiscarded": 0,
+      "assessmentsDowngraded": 0,
+      "matchDistribution": {
+        "transferable": 4,
+        "partial": 2,
+        "none": 4
+      },
+      "overallScore": 28,
+      "recommendationsGenerated": 6,
+      "recommendationsApproved": 5,
+      "recommendationsRejected": 1,
+      "rejectedByPrecheckOnly": 0,
+      "rejections": [
+        {
+          "issues": [
+            "misleading_wording",
+            "exaggerated_responsibility"
+          ],
+          "original": "Design brand identities, packaging, and print collateral for small businesses.",
+          "suggested": "Design brand identity systems, packaging, and print collateral for small businesses.",
+          "reason": "Upgrading 'brand identities' to 'brand identity systems' implies delivery of comprehensive identity systems (guidelines, component libraries, usage rules) that the resume never mentions; the resume supports only brand identities."
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

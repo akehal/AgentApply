@@ -1,0 +1,69 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Length 1780 >>
+stream
+BT
+/F1 10 Tf
+13 TL
+50 800 Td
+(JORDAN RIVERA) Tj T*
+(Software Engineer \267 Riverton, OR \267 jordan.rivera@example.com) Tj T*
+() Tj T*
+(SUMMARY) Tj T*
+(Software engineer with 4 years of experience building web applications and internal tools.) Tj T*
+(Comfortable across the stack, with a focus on React front-ends and Node.js services.) Tj T*
+() Tj T*
+(EXPERIENCE) Tj T*
+(Software Engineer \227 Brightleaf Logistics \(fictional\), Riverton, OR) Tj T*
+(March 2022 \226 Present) Tj T*
+(- Built and maintained React and TypeScript dashboards used by the operations team to track) Tj T*
+(shipments.) Tj T*
+(- Developed REST APIs in Node.js and Express backed by PostgreSQL.) Tj T*
+(- Reduced dashboard load time by 40% by introducing pagination and query indexing.) Tj T*
+(- Wrote unit tests with Jest and participated in code reviews for a team of 6 engineers.) Tj T*
+(- Assisted with migrating the deployment pipeline from Jenkins to GitHub Actions.) Tj T*
+() Tj T*
+(Junior Web Developer \227 Maple Street Media \(fictional\), Riverton, OR) Tj T*
+(June 2020 \226 February 2022) Tj T*
+(- Implemented responsive marketing pages using HTML, CSS, and JavaScript.) Tj T*
+(- Collaborated with designers to convert Figma mockups into reusable UI components.) Tj T*
+(- Maintained a WordPress site and fixed accessibility issues reported by users.) Tj T*
+() Tj T*
+(PROJECTS) Tj T*
+(Trailhead Tracker \227 personal project) Tj T*
+(- Built a hiking log web app with Next.js and Tailwind CSS, deployed on Vercel.) Tj T*
+() Tj T*
+(EDUCATION) Tj T*
+(B.S. in Computer Science \227 Cascade Valley University \(fictional\), 2020) Tj T*
+() Tj T*
+(SKILLS) Tj T*
+(JavaScript, TypeScript, React, Next.js, Node.js, Express, PostgreSQL, Jest, Git, GitHub) Tj T*
+(Actions, HTML, CSS, Tailwind CSS) Tj T*
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000000338 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2170
+%%EOF
